@@ -7,6 +7,7 @@ export function KontaktSection() {
   return (
     <section id="kontakt" className="py-32 relative [perspective:1000px] bg-background border-t border-white/5">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(212,175,55,0.05),transparent_70%)]" />
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff02_1px,transparent_1px),linear-gradient(to_bottom,#ffffff02_1px,transparent_1px)] bg-[size:4rem_4rem]" />
       <div className="container mx-auto px-6 md:px-12 relative z-10">
         <div className="text-center mb-20">
           <motion.h2 
@@ -46,9 +47,9 @@ export function KontaktSection() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.8, delay: i * 0.1, ease: [0.16, 1, 0.3, 1] }}
                 whileHover={{ y: -10, scale: 1.02, rotateX: 5, rotateY: -5 }}
-                className="bg-muted border border-white/5 rounded-2xl p-8 flex flex-col items-center text-center hover:border-primary/30 transition-all duration-300 group shadow-[0_10px_30px_-15px_rgba(0,0,0,0.5)] hover:shadow-[0_20px_40px_-15px_rgba(212,175,55,0.2)] [transform-style:preserve-3d]"
+                className="bg-muted/20 backdrop-blur-2xl border border-white/5 rounded-3xl p-8 flex flex-col items-center text-center hover:border-primary/20 hover:bg-muted/40 transition-all duration-700 group shadow-xl hover:shadow-[0_10px_30px_rgba(212,175,55,0.15)] [transform-style:preserve-3d]"
               >
-                <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-all duration-300 shadow-[0_0_15px_rgba(212,175,55,0.1)] group-hover:shadow-[0_0_20px_rgba(212,175,55,0.3)]" style={{ transform: "translateZ(20px)" }}>
+                <div className="w-16 h-16 rounded-2xl bg-background/50 flex items-center justify-center mb-6 group-hover:bg-primary/10 border border-white/10 group-hover:border-primary/30 transition-colors duration-700 shadow-inner" style={{ transform: "translateZ(20px)" }}>
                   <Icon className="w-8 h-8 text-primary group-hover:scale-110 transition-transform duration-300" />
                 </div>
                 <h3 className="text-white font-display font-bold text-xl mb-2" style={{ transform: "translateZ(10px)" }}>{item.title}</h3>

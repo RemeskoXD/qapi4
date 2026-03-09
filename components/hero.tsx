@@ -66,11 +66,18 @@ export function Hero() {
           initial={{ opacity: 0, scale: 0.8, rotateY: 30 }}
           animate={{ opacity: 1, scale: 1, rotateY: 0 }}
           transition={{ duration: 1.5, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-          className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-white/10 bg-background/20 backdrop-blur-md mb-8 md:mb-12"
+          className="inline-flex items-center gap-3 px-5 py-2 rounded-full border border-white/10 bg-background/20 backdrop-blur-md mb-8 md:mb-12"
         >
-          <span className="w-1.5 h-1.5 rounded-full bg-primary" />
-          <span className="text-white/60 text-[10px] md:text-[11px] font-medium uppercase tracking-[0.2em]">
-            Poctivá česká vrata na míru
+          <div className="flex items-center gap-1">
+            {[1, 2, 3, 4, 5].map((star) => (
+              <svg key={star} className="w-3.5 h-3.5 text-primary drop-shadow-[0_0_5px_rgba(212,175,55,0.8)]" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+              </svg>
+            ))}
+          </div>
+          <span className="w-1 h-1 rounded-full bg-white/20" />
+          <span className="text-white/80 text-[10px] md:text-[11px] font-bold uppercase tracking-[0.1em]">
+            Více než 10 let na trhu
           </span>
         </motion.div>
 
@@ -91,7 +98,7 @@ export function Hero() {
           className="mt-8 md:mt-12 text-base sm:text-lg md:text-2xl text-white/70 max-w-3xl font-light leading-relaxed px-4 tracking-wide"
         >
           Špičková garážová vrata, designová stínící technika a profesionální servis oken. 
-          Spojujeme inovativní technologie s nadčasovým designem pro váš domov.
+          <strong className="text-white font-medium"> Získejte nezávaznou kalkulaci a odborné zaměření zdarma.</strong>
         </motion.p>
 
         <motion.div
@@ -106,7 +113,7 @@ export function Hero() {
           >
             <div className="absolute inset-0 w-full h-full bg-white transform -translate-x-full group-hover:translate-x-0 transition-transform duration-500 ease-[0.16,1,0.3,1]" />
             <span className="relative flex items-center justify-center gap-3 group-hover:text-primary-foreground transition-colors duration-300">
-              Nezávazná poptávka
+              Získat nezávaznou nabídku
               <ArrowRight className="w-4 h-4 transform group-hover:translate-x-2 transition-transform duration-500 ease-[0.16,1,0.3,1]" />
             </span>
           </Link>
@@ -114,7 +121,7 @@ export function Hero() {
             href="#sluzby"
             className="group w-full sm:w-auto px-8 md:px-10 py-4 bg-background/50 backdrop-blur-md border border-white/20 text-white font-bold text-xs md:text-sm uppercase tracking-[0.15em] hover:border-white/40 hover:bg-background/80 transition-all duration-500 rounded-xl shadow-lg hover:shadow-[0_10px_30px_rgba(0,0,0,0.5)] transform hover:-translate-y-1 text-center"
           >
-            Prohlédnout produkty
+            Ukázky realizací
           </Link>
         </motion.div>
       </div>

@@ -353,12 +353,20 @@ export function Booking() {
                   >
                     Zpět
                   </button>
-                  <button
-                    onClick={handleNext}
-                    className="w-full sm:w-auto px-8 py-4 bg-primary text-primary-foreground font-bold text-sm uppercase tracking-widest rounded-xl hover:bg-white transition-colors flex items-center justify-center gap-2 shadow-[0_10px_20px_rgba(212,175,55,0.2)]"
-                  >
-                    Dokončit rezervaci <CheckCircle2 className="w-5 h-5" />
-                  </button>
+                  <div className="flex flex-col items-end gap-3 w-full sm:w-auto">
+                    <button
+                      onClick={handleNext}
+                      className="w-full sm:w-auto px-8 py-4 bg-primary text-primary-foreground font-bold text-sm uppercase tracking-widest rounded-xl hover:bg-white transition-colors flex items-center justify-center gap-2 shadow-[0_10px_20px_rgba(212,175,55,0.2)]"
+                    >
+                      Odeslat nezávaznou poptávku <CheckCircle2 className="w-5 h-5" />
+                    </button>
+                    <div className="flex items-center gap-2 text-white/40 text-xs font-light">
+                      <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                      </svg>
+                      Vaše údaje jsou v bezpečí. Ozveme se do 24 hodin.
+                    </div>
+                  </div>
                 </div>
               </div>
             )}

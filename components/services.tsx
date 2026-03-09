@@ -72,7 +72,7 @@ export function Services() {
               href="#rezervace"
               className="inline-flex items-center gap-3 text-primary uppercase tracking-[0.2em] font-bold text-xs hover:text-white transition-colors group"
             >
-              Nezávazná poptávka
+              Získat kalkulaci zdarma
               <span className="w-8 h-8 rounded-full border border-primary/30 flex items-center justify-center group-hover:border-white/30 transition-colors bg-primary/10 group-hover:bg-primary/20">
                 <ArrowUpRight className="w-4 h-4" />
               </span>

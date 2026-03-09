@@ -3,12 +3,18 @@
 import { motion } from 'motion/react';
 
 const partners = [
-  'SOMFY',
-  'HÖRMANN',
-  'LOMAX',
-  'KRUŽÍK',
-  'ISOTRA',
-  'CLIMAX',
+  'Roto',
+  'Siegenia',
+  'Maco',
+  'Winkhaus',
+  'Gretsch-Unitas',
+  'Schuco',
+  'Aubi',
+  'Sobinco',
+  'Giesse',
+  'Fapim',
+  'Dr. Hahn',
+  'SFS',
 ];
 
 export function Partners() {
@@ -19,13 +25,13 @@ export function Partners() {
       
       <div className="flex w-full [transform-style:preserve-3d]">
         <motion.div
-          animate={{ x: [0, -1035] }}
+          animate={{ x: ["0%", "-33.333333%"] }}
           transition={{
             repeat: Infinity,
             ease: "linear",
-            duration: 20,
+            duration: 40,
           }}
-          className="flex whitespace-nowrap items-center gap-24 px-12"
+          className="flex whitespace-nowrap items-center gap-16 md:gap-24 px-8 md:px-12 w-max"
         >
           {[...partners, ...partners, ...partners].map((partner, i) => (
             <motion.div
