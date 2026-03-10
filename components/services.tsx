@@ -7,20 +7,20 @@ import { ArrowUpRight } from 'lucide-react';
 
 const services = [
   {
-    id: 'vrata',
-    title: 'Garážová Vrata',
-    description: 'Sekční, rolovací a průmyslová vrata špičkové kvality s důrazem na bezpečnost a design.',
-    image: 'https://qapi.cz/wp-content/uploads/2025/11/Pred-1.jpg',
-    link: '#vrata',
-    colSpan: 'md:col-span-2',
-    rowSpan: 'md:row-span-2',
-  },
-  {
     id: 'servis',
     title: 'Servis Oken',
     description: 'Profesionální údržba, seřízení a opravy pro maximální životnost vašich oken.',
     image: 'https://qapi.cz/wp-content/uploads/2025/10/IMG_8266-1536x864.jpg',
     link: '#servis-oken',
+    colSpan: 'md:col-span-2',
+    rowSpan: 'md:row-span-2',
+  },
+  {
+    id: 'vrata',
+    title: 'Garážová Vrata',
+    description: 'Sekční, rolovací a průmyslová vrata špičkové kvality s důrazem na bezpečnost a design.',
+    image: 'https://qapi.cz/wp-content/uploads/2025/11/Pred-1.jpg',
+    link: '#vrata',
     colSpan: 'md:col-span-1',
     rowSpan: 'md:row-span-1',
   },
@@ -37,7 +37,7 @@ const services = [
 
 export function Services() {
   return (
-    <section id="sluzby" className="py-32 bg-background relative overflow-hidden">
+    <section id="sluzby" className="py-20 md:py-24 lg:py-32 bg-background relative overflow-hidden">
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(212,175,55,0.05),transparent_50%)]" />
       <div className="container mx-auto px-6 md:px-12 relative z-10">
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 md:gap-8 mb-12 md:mb-20">
@@ -47,7 +47,7 @@ export function Services() {
               whileInView={{ opacity: 1, y: 0, rotateX: 0 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-              className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-[1.1] tracking-tighter"
+              className="font-display text-4xl sm:text-5xl md:text-6xl font-bold text-white leading-[1.1] tracking-tighter"
             >
               Naše <span className="text-primary italic font-light">portfolio</span>
             </motion.h2>

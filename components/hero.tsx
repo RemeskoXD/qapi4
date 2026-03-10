@@ -85,7 +85,7 @@ export function Hero() {
           initial={{ opacity: 0, y: 60, rotateX: 20 }}
           animate={{ opacity: 1, y: 0, rotateX: 0 }}
           transition={{ duration: 1.2, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
-          className="font-display text-5xl sm:text-6xl md:text-8xl lg:text-[140px] font-bold text-white leading-[0.9] tracking-tight max-w-7xl drop-shadow-2xl flex flex-col items-center"
+          className="font-display text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-[110px] font-bold text-white leading-[0.9] tracking-tight max-w-7xl drop-shadow-2xl flex flex-col items-center"
         >
           <span>Dokonalost v</span>
           <span className="text-primary italic font-light tracking-normal transform hover:scale-105 transition-transform duration-500 cursor-default mt-2 md:mt-4">každém detailu</span>
@@ -95,7 +95,7 @@ export function Hero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.7, ease: [0.16, 1, 0.3, 1] }}
-          className="mt-8 md:mt-12 text-base sm:text-lg md:text-2xl text-white/70 max-w-3xl font-light leading-relaxed px-4 tracking-wide"
+          className="mt-8 md:mt-10 text-base sm:text-lg md:text-xl xl:text-2xl text-white/70 max-w-3xl font-light leading-relaxed px-4 tracking-wide"
         >
           Špičková garážová vrata, designová stínící technika a profesionální servis oken. 
           <strong className="text-white font-medium"> Získejte nezávaznou kalkulaci a odborné zaměření zdarma.</strong>
@@ -113,7 +113,7 @@ export function Hero() {
           >
             <div className="absolute inset-0 w-full h-full bg-white transform -translate-x-full group-hover:translate-x-0 transition-transform duration-500 ease-[0.16,1,0.3,1]" />
             <span className="relative flex items-center justify-center gap-3 group-hover:text-primary-foreground transition-colors duration-300">
-              Získat nezávaznou nabídku
+              Poptat servis oken
               <ArrowRight className="w-4 h-4 transform group-hover:translate-x-2 transition-transform duration-500 ease-[0.16,1,0.3,1]" />
             </span>
           </Link>
@@ -121,7 +121,7 @@ export function Hero() {
             href="#sluzby"
             className="group w-full sm:w-auto px-8 md:px-10 py-4 bg-background/50 backdrop-blur-md border border-white/20 text-white font-bold text-xs md:text-sm uppercase tracking-[0.15em] hover:border-white/40 hover:bg-background/80 transition-all duration-500 rounded-xl shadow-lg hover:shadow-[0_10px_30px_rgba(0,0,0,0.5)] transform hover:-translate-y-1 text-center"
           >
-            Ukázky realizací
+            Další služby
           </Link>
         </motion.div>
       </div>

@@ -14,7 +14,6 @@ const partners = [
   'Giesse',
   'Fapim',
   'Dr. Hahn',
-  'SFS',
 ];
 
 export function Partners() {

@@ -7,7 +7,7 @@ import { motion } from 'motion/react';
 
 export function ServisOkenSection() {
   return (
-    <section id="servis-oken" className="py-32 relative [perspective:1000px] bg-background border-t border-white/5">
+    <section id="servis-oken" className="py-20 md:py-24 lg:py-32 relative [perspective:1000px] bg-background border-t border-white/5">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(212,175,55,0.05),transparent_70%)]" />
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff02_1px,transparent_1px),linear-gradient(to_bottom,#ffffff02_1px,transparent_1px)] bg-[size:4rem_4rem]" />
       <div className="container mx-auto px-6 md:px-12 relative z-10">
@@ -29,7 +29,7 @@ export function ServisOkenSection() {
             whileInView={{ opacity: 1, y: 0, rotateX: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-            className="font-display text-5xl md:text-6xl font-bold text-white tracking-tight drop-shadow-lg"
+            className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-white tracking-tight drop-shadow-lg"
           >
             Servis <span className="text-primary italic font-light">oken a dveří</span>
           </motion.h2>
@@ -46,13 +46,14 @@ export function ServisOkenSection() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-32">
           {[
-            { icon: ThermometerSun, title: 'Dokonalé těsnění bez průvanu', desc: 'Seřízením a výměnou těsnění odstraníme úniky tepla a proudění studeného vzduchu do interiéru.' },
-            { icon: Wrench, title: 'Tiché a plynulé otevírání', desc: 'Pročištění a seřízení kování zajistí hladký chod klik a pantů bez vrzání a zadrhávání.' },
-            { icon: ShieldCheck, title: 'Úspora energií až desítky procent', desc: 'Správně seřízené okno dokáže výrazně snížit tepelné ztráty a tím i náklady na vytápění.' },
-            { icon: Clock, title: 'Delší životnost oken', desc: 'Pravidelný servis zabraňuje opotřebení, deformacím křídel i poškození kování.' },
-            { icon: Lock, title: 'Vyšší bezpečnost', desc: 'Zkontrolujeme správnou funkci uzávěrů a dorovnáme přítlaky pro bezpečné dovření.' },
-          ].map((benefit, i) => {
-            const Icon = benefit.icon;
+            { icon: Wrench, title: 'Oprava a nastavení oken a dveří', warranty: 12 },
+            { icon: ShieldCheck, title: 'Promazání kování a těsnění', warranty: 12 },
+            { icon: ThermometerSun, title: 'Výměna těsnění', warranty: 24 },
+            { icon: Lock, title: 'Výměna kování a komponentů', warranty: 24 },
+            { icon: ArrowRight, title: 'Výměna skla', warranty: 24 },
+            { icon: Clock, title: 'Oprava a výměna interiérových žaluzií', warranty: 24 },
+          ].map((service, i) => {
+            const Icon = service.icon;
             return (
               <motion.div
                 key={i}
@@ -60,13 +61,29 @@ export function ServisOkenSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.8, delay: i * 0.1 }}
-                className="bg-muted/20 backdrop-blur-2xl border border-white/5 rounded-3xl p-8 hover:border-primary/20 hover:bg-muted/40 transition-all duration-700 group shadow-xl hover:shadow-[0_10px_30px_rgba(212,175,55,0.15)]"
+                className="bg-muted/20 backdrop-blur-2xl border border-white/5 rounded-3xl p-8 hover:border-primary/20 hover:bg-muted/40 transition-all duration-700 group shadow-xl hover:shadow-[0_10px_30px_rgba(212,175,55,0.15)] relative overflow-hidden flex flex-col items-center text-center"
               >
-                <div className="w-14 h-14 rounded-2xl bg-background/50 flex items-center justify-center mb-6 group-hover:bg-primary/10 border border-white/10 group-hover:border-primary/30 transition-colors duration-700 shadow-inner">
-                  <Icon className="w-7 h-7 text-primary" />
+                {/* Warranty Badge */}
+                <div className="absolute top-0 left-0 bg-red-600 text-white px-4 py-2 rounded-br-2xl font-bold flex flex-col items-center justify-center shadow-lg z-10">
+                  <span className="text-[10px] uppercase tracking-wider opacity-80">Záruka</span>
+                  <span className="text-2xl leading-none">{service.warranty}</span>
+                  <span className="text-[10px] uppercase tracking-wider opacity-80">měsíců</span>
                 </div>
-                <h3 className="text-xl font-display font-bold text-white mb-3">{benefit.title}</h3>
-                <p className="text-white/60 font-light leading-relaxed">{benefit.desc}</p>
+                
+                {/* Discount Badge */}
+                <div className="absolute top-4 right-4 bg-red-600 text-white w-12 h-12 rounded-full flex flex-col items-center justify-center shadow-lg font-bold z-10 transform rotate-12 group-hover:rotate-0 transition-transform duration-500">
+                  <span className="text-sm leading-none">-30%</span>
+                  <span className="text-[9px] uppercase tracking-wider">sleva</span>
+                </div>
+
+                <div className="w-24 h-24 mt-8 rounded-2xl bg-background/50 flex items-center justify-center mb-6 group-hover:bg-primary/10 border border-white/10 group-hover:border-primary/30 transition-colors duration-700 shadow-inner">
+                  <Icon className="w-12 h-12 text-primary group-hover:scale-110 transition-transform duration-500" />
+                </div>
+                <h3 className="text-xl font-display font-bold text-white mb-6 flex-grow flex items-center">{service.title}</h3>
+                
+                <Link href="#rezervace" className="w-full py-3 border-t border-white/10 text-primary text-sm font-bold uppercase tracking-widest hover:bg-white/5 transition-colors group-hover:text-white">
+                  Zobrazit službu
+                </Link>
               </motion.div>
             );
           })}

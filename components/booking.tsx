@@ -71,7 +71,7 @@ export function Booking() {
   const handlePrev = () => setStep(s => Math.max(s - 1, 1));
 
   return (
-    <section id="rezervace" className="py-32 bg-background relative overflow-hidden [perspective:1000px]">
+    <section id="rezervace" className="py-20 md:py-24 lg:py-32 bg-background relative overflow-hidden [perspective:1000px]">
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-primary/5 via-background to-background" />
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff02_1px,transparent_1px),linear-gradient(to_bottom,#ffffff02_1px,transparent_1px)] bg-[size:4rem_4rem]" />
       
@@ -83,7 +83,7 @@ export function Booking() {
               whileInView={{ opacity: 1, y: 0, rotateX: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-              className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-[1.1] tracking-tighter drop-shadow-lg"
+              className="font-display text-4xl sm:text-5xl md:text-6xl font-bold text-white leading-[1.1] tracking-tighter drop-shadow-lg"
             >
               Rezervujte si <span className="text-primary italic font-light">termín</span>
             </motion.h2>
