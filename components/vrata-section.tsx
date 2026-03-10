@@ -7,7 +7,7 @@ import { motion } from 'motion/react';
 
 export function VrataSection() {
   return (
-    <section id="vrata" className="py-20 md:py-24 lg:py-32 relative [perspective:1000px] bg-background border-t border-white/5">
+    <section id="vrata" className="py-16 md:py-20 lg:py-24 2xl:py-32 relative [perspective:1000px] bg-background border-t border-white/5">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(212,175,55,0.05),transparent_70%)]" />
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff02_1px,transparent_1px),linear-gradient(to_bottom,#ffffff02_1px,transparent_1px)] bg-[size:4rem_4rem]" />
       <div className="container mx-auto px-6 md:px-12 relative z-10">
@@ -17,7 +17,7 @@ export function VrataSection() {
             whileInView={{ opacity: 1, y: 0, rotateX: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-            className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-white tracking-tight drop-shadow-lg"
+            className="font-display text-3xl md:text-4xl lg:text-5xl 2xl:text-6xl font-bold text-white tracking-tight drop-shadow-lg"
           >
             Garážová <span className="text-primary italic font-light">vrata</span>
           </motion.h2>
@@ -68,11 +68,11 @@ export function VrataSection() {
               transition={{ duration: 1, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
               className="text-white/60 font-light leading-relaxed text-lg"
             >
-              Nejoblíbenější řešení pro moderní garáže. Vrata se otevírají svisle nahoru a jsou zavěšena pod stropem, 
-              čímž šetří maximum prostoru. Nabízíme širokou škálu panelů, barev a imitací dřeva.
+              Proměňte svou garáž v nedobytnou pevnost s prémiovým designem. Naše sekční vrata šetří místo, 
+              izolují teplo a dodají vašemu domu luxusní vzhled, který podtrhne vaši investici.
             </motion.p>
             <ul className="space-y-5">
-              {['Vynikající tepelná izolace', 'Tichý a plynulý chod', 'Vysoká bezpečnost proti vloupání', 'Možnost integrovaných dveří'].map((item, index) => (
+              {['Termoizolace, která šetří peníze', 'Extrémně tichý a plynulý chod', 'Certifikovaná ochrana proti vloupání', 'Design na míru vašemu domu'].map((item, index) => (
                 <motion.li 
                   key={item} 
                   initial={{ opacity: 0, x: 20 }}
@@ -122,11 +122,11 @@ export function VrataSection() {
               transition={{ duration: 1, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
               className="text-white/60 font-light leading-relaxed text-lg"
             >
-              Ideální řešení tam, kde je potřeba ušetřit místo pod stropem. Lamely se navíjejí do boxu nad otvorem, 
-              což umožňuje využít celý prostor garáže.
+              Chytré řešení pro garáže, kde záleží na každém centimetru. Získejte maximum prostoru 
+              bez kompromisů v bezpečnosti a eleganci. Vaše garáž, vaše pravidla.
             </motion.p>
             <ul className="space-y-5">
-              {['Úspora místa pod stropem', 'Hliníkové lamely s izolací', 'Snadná údržba', 'Moderní vzhled'].map((item, index) => (
+              {['100% využití prostoru pod stropem', 'Odolné hliníkové lamely s izolací', 'Bezúdržbový a spolehlivý systém', 'Minimalistický a čistý design'].map((item, index) => (
                 <motion.li 
                   key={item} 
                   initial={{ opacity: 0, x: -20 }}
@@ -194,11 +194,11 @@ export function VrataSection() {
               transition={{ duration: 1, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
               className="text-white/60 font-light leading-relaxed text-lg"
             >
-              Spolehlivá řešení pro výrobní haly, sklady a komerční objekty. 
-              Vysoká odolnost, dlouhá životnost a možnost intenzivního používání.
+              Nekompromisní řešení pro váš byznys. Vrata navržená pro extrémní zátěž, 
+              která nikdy nezpomalí váš provoz a ochrání váš majetek 24/7.
             </motion.p>
             <ul className="space-y-5">
-              {['Zesílená konstrukce', 'Vysoká frekvence otevírání', 'Různé typy kování', 'Možnost prosvětlovacích sekcí'].map((item, index) => (
+              {['Konstrukce pro extrémní zátěž', 'Garantováno pro statisíce cyklů', 'Rychlý a bezpečný provoz', 'Maximální propustnost světla'].map((item, index) => (
                 <motion.li 
                   key={item} 
                   initial={{ opacity: 0, x: -20 }}

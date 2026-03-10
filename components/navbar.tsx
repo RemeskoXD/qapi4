@@ -29,14 +29,16 @@ export function Navbar() {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-700 [perspective:1000px] ${
-        isScrolled || isMobileMenuOpen ? 'bg-background/80 backdrop-blur-2xl border-b border-white/5 py-3 md:py-4 shadow-[0_10px_40px_rgba(0,0,0,0.6)]' : 'bg-gradient-to-b from-background/80 via-background/40 to-transparent py-4 md:py-8'
+        isScrolled || isMobileMenuOpen 
+          ? 'bg-background/80 backdrop-blur-2xl border-b border-white/5 py-3 shadow-[0_10px_40px_rgba(0,0,0,0.6)]' 
+          : 'bg-gradient-to-b from-background/80 via-background/40 to-transparent py-4 md:py-6 lg:py-8'
       }`}
     >
       <div className="container mx-auto px-4 sm:px-6 md:px-12 flex items-center justify-between relative [transform-style:preserve-3d]">
         <Link href="/" className="flex items-center gap-2 group z-10">
           <motion.div 
             whileHover={{ scale: 1.05, rotateY: 10 }}
-            className="relative w-[160px] h-[48px] sm:w-[180px] sm:h-[54px] md:w-[224px] md:h-[64px] transition-transform duration-300"
+            className="relative w-[140px] h-[42px] sm:w-[160px] sm:h-[48px] md:w-[180px] md:h-[54px] lg:w-[200px] lg:h-[60px] 2xl:w-[224px] 2xl:h-[64px] transition-transform duration-300"
           >
             <Image
               src="https://qapi.cz/wp-content/uploads/2025/10/Logo-Bile.png"
@@ -48,43 +50,49 @@ export function Navbar() {
           </motion.div>
         </Link>
 
-        {/* Desktop Nav */}
-        <nav className="hidden lg:flex items-center justify-center gap-8 absolute left-1/2 -translate-x-1/2 w-full max-w-2xl pointer-events-none">
-          <div className="flex items-center gap-8 pointer-events-auto">
+        {/* Desktop Right Side (Nav + Contact + CTA) */}
+        <div className="hidden lg:flex items-center gap-4 xl:gap-8 z-10">
+          {/* Nav Links */}
+          <nav className={`flex items-center gap-1 xl:gap-2 transition-all duration-500 ${isScrolled ? 'bg-white/5 border border-white/10 rounded-full px-4 py-1.5 backdrop-blur-md shadow-[0_4px_20px_rgba(0,0,0,0.2)]' : 'px-2 py-1.5'}`}>
             {navLinks.map((link) => (
               <Link
                 key={link.name}
                 href={link.href}
-                className="relative text-[11px] font-bold text-white/90 hover:text-primary transition-colors uppercase tracking-[0.25em] group overflow-hidden"
+                className="relative px-3 py-2 text-[10px] xl:text-[11px] font-bold text-white/70 hover:text-white transition-colors uppercase tracking-[0.2em] group"
               >
-                <motion.span whileHover={{ y: -2 }} className="inline-block transition-transform duration-300">
-                  {link.name}
-                </motion.span>
-                <span className="absolute bottom-0 left-0 w-full h-[1px] bg-primary transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left shadow-[0_0_10px_rgba(212,175,55,0.8)]" />
+                <span className="relative z-10">{link.name}</span>
+                {/* Hover pill background */}
+                <span className="absolute inset-0 bg-white/10 rounded-full scale-50 opacity-0 group-hover:scale-100 group-hover:opacity-100 transition-all duration-300 ease-out" />
+                {/* Subtle bottom glow dot */}
+                <span className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-1 h-1 bg-primary rounded-full opacity-0 group-hover:opacity-100 group-hover:shadow-[0_0_8px_rgba(212,175,55,1)] transition-all duration-300" />
               </Link>
             ))}
-          </div>
-        </nav>
+          </nav>
 
-        <div className="hidden md:flex items-center gap-6 z-10">
-          <a href="tel:+420702835964" className="flex items-center gap-2 text-white/80 hover:text-secondary transition-colors group">
-            <motion.div whileHover={{ rotate: 15, scale: 1.1 }} className="transition-transform duration-300">
-              <Phone className="w-4 h-4 drop-shadow-[0_0_5px_rgba(59,130,246,0.5)] text-secondary" />
-            </motion.div>
-            <span className="text-sm font-bold tracking-widest">+420 702 835 964</span>
-          </a>
-          <Link
-            href="#rezervace"
-            className="relative px-7 py-3 bg-primary text-primary-foreground font-bold text-xs uppercase tracking-[0.2em] rounded-xl hover:bg-white transition-all duration-500 shadow-[0_5px_20px_rgba(212,175,55,0.25)] hover:shadow-[0_10px_30px_rgba(212,175,55,0.4)] hover:-translate-y-1 overflow-hidden group"
-          >
-            <span className="relative z-10">Rezervovat</span>
-            <div className="absolute inset-0 bg-white/20 transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
-          </Link>
+          {/* Separator */}
+          <div className="w-[1px] h-8 bg-white/10 hidden xl:block" />
+
+          {/* Contact & CTA */}
+          <div className="flex items-center gap-4 xl:gap-6">
+            <a href="tel:+420702835964" className="flex items-center gap-2 xl:gap-3 text-white/70 hover:text-white transition-colors group">
+              <div className="w-8 h-8 rounded-full bg-white/5 border border-white/10 flex items-center justify-center group-hover:bg-primary/20 group-hover:border-primary/30 transition-all duration-300">
+                <Phone className="w-3.5 h-3.5 text-white/70 group-hover:text-primary transition-colors" />
+              </div>
+              <span className="text-xs xl:text-sm font-medium tracking-widest whitespace-nowrap">+420 702 835 964</span>
+            </a>
+            <Link
+              href="#rezervace"
+              className="relative px-6 py-2.5 xl:px-8 xl:py-3 bg-primary text-primary-foreground font-bold text-[10px] xl:text-xs uppercase tracking-[0.2em] rounded-full hover:bg-white transition-all duration-500 shadow-[0_0_20px_rgba(212,175,55,0.3)] hover:shadow-[0_0_30px_rgba(212,175,55,0.6)] hover:-translate-y-0.5 overflow-hidden group whitespace-nowrap"
+            >
+              <span className="relative z-10">Získat cenu</span>
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/40 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out" />
+            </Link>
+          </div>
         </div>
 
         {/* Mobile Menu Toggle */}
         <button
-          className="md:hidden text-white p-2 hover:text-primary transition-colors"
+          className="lg:hidden text-white p-2 hover:text-primary transition-colors"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           aria-label={isMobileMenuOpen ? "Zavřít menu" : "Otevřít menu"}
           aria-expanded={isMobileMenuOpen}
@@ -130,7 +138,7 @@ export function Navbar() {
                   onClick={() => setIsMobileMenuOpen(false)}
                   className="block mt-6 px-6 py-4 bg-primary text-primary-foreground font-bold text-center uppercase tracking-wider rounded-xl shadow-[0_10px_20px_rgba(212,175,55,0.3)]"
                 >
-                  Rezervovat termín
+                  Získat cenu
                 </Link>
               </motion.div>
             </div>

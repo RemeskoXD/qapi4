@@ -43,9 +43,9 @@ export function GarageDoorScroll() {
         
         <div className="text-center z-10 mb-4 md:mb-8 [@media(max-height:700px)]:mb-2 shrink-0">
           <h2 className="text-2xl sm:text-3xl md:text-5xl font-display font-bold text-white mb-1 md:mb-2 leading-tight [@media(max-height:700px)]:text-xl">
-            Objevte naše <span className="text-primary italic">technologie</span>
+            Nekompromisní <span className="text-primary italic">kvalita</span> v praxi
           </h2>
-          <p className="text-white/50 text-xs sm:text-sm md:text-lg [@media(max-height:700px)]:text-[10px]">Scrollujte dolů pro otevření vrat a přehrání videa</p>
+          <p className="text-white/50 text-xs sm:text-sm md:text-lg [@media(max-height:700px)]:text-[10px]">Scrollujte dolů a nahlédněte pod pokličku naší práce</p>
         </div>
 
         {/* Rám garáže - flex-1 zajistí, že se přizpůsobí výšce obrazovky */}
@@ -63,19 +63,19 @@ export function GarageDoorScroll() {
                 <ShieldCheck className="w-4 h-4 sm:w-5 sm:h-5 md:w-10 md:h-10 text-primary" />
               </div>
               <h3 className="text-lg sm:text-xl md:text-5xl font-display font-bold text-white mb-1 sm:mb-2 md:mb-6 leading-tight">
-                Vítejte v <span className="text-primary italic">bezpečí</span>
+                Implicitní <span className="text-primary italic">důvěra</span>
               </h3>
               <p className="text-white/60 text-[10px] sm:text-xs md:text-lg max-w-lg mx-auto font-light mb-2 sm:mb-4 md:mb-8 hidden sm:block">
-                Naše garážová vrata kombinují špičkový design s maximální ochranou vašeho majetku.
+                Neříkáme, že jsme profesionálové. My vám to ukážeme. Čisté uniformy, špičkové nářadí a absolutní soustředění na detail.
               </p>
               <div className="flex flex-wrap justify-center gap-1 sm:gap-2 md:gap-6">
                 <div className="flex items-center gap-1 md:gap-2 text-[8px] sm:text-[10px] md:text-sm text-white/80 bg-white/5 px-1.5 py-0.5 sm:px-2 sm:py-1 md:px-4 md:py-2 rounded-full border border-white/10">
-                  <Lock className="w-2.5 h-2.5 sm:w-3 sm:h-3 md:w-4 md:h-4 text-primary" />
-                  <span>Bezpečnostní zámek</span>
+                  <Shield className="w-2.5 h-2.5 sm:w-3 sm:h-3 md:w-4 md:h-4 text-primary" />
+                  <span>Certifikovaní technici</span>
                 </div>
                 <div className="flex items-center gap-1 md:gap-2 text-[8px] sm:text-[10px] md:text-sm text-white/80 bg-white/5 px-1.5 py-0.5 sm:px-2 sm:py-1 md:px-4 md:py-2 rounded-full border border-white/10">
-                  <Shield className="w-2.5 h-2.5 sm:w-3 sm:h-3 md:w-4 md:h-4 text-primary" />
-                  <span>Tepelná izolace</span>
+                  <Lock className="w-2.5 h-2.5 sm:w-3 sm:h-3 md:w-4 md:h-4 text-primary" />
+                  <span>Absolutní čistota práce</span>
                 </div>
               </div>
             </motion.div>

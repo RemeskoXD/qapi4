@@ -6,23 +6,23 @@ import { ShieldCheck, Clock, Wrench, ThumbsUp } from 'lucide-react';
 const guarantees = [
   {
     icon: ShieldCheck,
-    title: 'Záruka až 5 let',
-    description: 'Na naše produkty a montáž poskytujeme prodlouženou záruku.',
+    title: '100% Garance spokojenosti',
+    description: 'Platíte až po dokončení a předání díla. Žádné skryté poplatky, žádné riziko.',
   },
   {
     icon: Clock,
     title: 'Servis do 24 hodin',
-    description: 'V případě havárie nebo poruchy přijedeme do druhého dne.',
+    description: 'V případě havárie nebo poruchy jsme u vás do druhého dne. Nenecháme vás v tom.',
   },
   {
     icon: Wrench,
-    title: 'Česká výroba',
-    description: 'Spolupracujeme s prověřenými českými výrobci a dodavateli.',
+    title: '10 let záruka na materiál',
+    description: 'Používáme pouze certifikované komponenty, které vydrží desetiletí.',
   },
   {
     icon: ThumbsUp,
-    title: '10+ let zkušeností',
-    description: 'Tisíce úspěšných realizací a spokojených zákazníků.',
+    title: 'Osobní zaměření ZDARMA',
+    description: 'Přijedeme, poradíme a připravíme přesnou kalkulaci. Zcela nezávazně.',
   },
 ];
 

@@ -17,6 +17,17 @@ export function Booking() {
   const [selectedType, setSelectedType] = useState<string>('');
   const [selectedColor, setSelectedColor] = useState<string>('');
   
+  // Form fields state
+  const [formData, setFormData] = useState({
+    name: '',
+    phone: '',
+    email: '',
+    address: '',
+    notes: ''
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  
   const availableTimes = ['08:00', '09:30', '11:00', '13:00', '14:30', '16:00'];
 
   const serviceOptions: Record<string, { types: { id: string, label: string, img: string }[], colors?: { id: string, label: string, hex: string }[] }> = {
@@ -70,8 +81,51 @@ export function Booking() {
   const handleNext = () => setStep(s => Math.min(s + 1, 5));
   const handlePrev = () => setStep(s => Math.max(s - 1, 1));
 
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = async () => {
+    if (!formData.name || !formData.phone || !formData.email || !formData.address) {
+      setError('Vyplňte prosím všechny povinné údaje (Jméno, Telefon, E-mail, Adresa).');
+      return;
+    }
+
+    setIsSubmitting(true);
+    setError(null);
+
+    try {
+      const response = await fetch('/api/leads', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          service,
+          type: selectedType,
+          color: selectedColor,
+          date: selectedDate ? format(selectedDate, 'yyyy-MM-dd') : '',
+          time: selectedTime,
+          ...formData
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error('Nepodařilo se odeslat poptávku.');
+      }
+
+      setStep(5); // Success step
+    } catch (err) {
+      setError('Něco se pokazilo. Zkuste to prosím znovu nebo nám zavolejte.');
+      console.error(err);
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return (
-    <section id="rezervace" className="py-20 md:py-24 lg:py-32 bg-background relative overflow-hidden [perspective:1000px]">
+    <section id="rezervace" className="py-16 md:py-20 lg:py-24 2xl:py-32 bg-background relative overflow-hidden [perspective:1000px]">
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-primary/5 via-background to-background" />
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff02_1px,transparent_1px),linear-gradient(to_bottom,#ffffff02_1px,transparent_1px)] bg-[size:4rem_4rem]" />
       
@@ -83,18 +137,18 @@ export function Booking() {
               whileInView={{ opacity: 1, y: 0, rotateX: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-              className="font-display text-4xl sm:text-5xl md:text-6xl font-bold text-white leading-[1.1] tracking-tighter drop-shadow-lg"
+              className="font-display text-[var(--text-h2)] font-bold text-white leading-[1.1] tracking-tighter drop-shadow-lg"
             >
-              Rezervujte si <span className="text-primary italic font-light">termín</span>
+              Získejte cenu do <span className="text-primary italic font-light">2 minut</span>
             </motion.h2>
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.2, duration: 1 }}
-              className="mt-6 text-base sm:text-lg text-white/60 font-light max-w-2xl mx-auto leading-relaxed"
+              className="mt-6 text-[var(--text-base)] text-white/60 font-light max-w-2xl mx-auto leading-relaxed"
             >
-              Vyberte si službu, čas a zadejte své údaje. Náš tým se vám bude plně věnovat.
+              Odpovězte na pár rychlých otázek a my vám připravíme nezávaznou kalkulaci na míru.
             </motion.p>
           </div>
 
@@ -135,7 +189,7 @@ export function Booking() {
             {/* Step 1: Service Selection */}
             {step === 1 && (
               <div className="space-y-6" style={{ transform: "translateZ(20px)" }}>
-                <h3 className="text-2xl font-display font-bold text-white mb-8">Jakou službu poptáváte?</h3>
+                <h3 className="text-2xl font-display font-bold text-white mb-8">S čím přesně potřebujete pomoci?</h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   {['Garážová vrata', 'Servis oken', 'Stínící technika', 'Průmyslová vrata'].map((item) => (
                     <button
@@ -311,54 +365,62 @@ export function Booking() {
             {/* Step 4: User Details */}
             {step === 4 && (
               <div className="space-y-8" style={{ transform: "translateZ(20px)" }}>
-                <h3 className="text-2xl font-display font-bold text-white mb-8">Vaše údaje</h3>
+                <h3 className="text-2xl font-display font-bold text-white mb-8">Kam se máme ozvat?</h3>
                 
+                {error && (
+                  <div className="bg-red-500/10 border border-red-500/50 text-red-500 px-4 py-3 rounded-xl text-sm">
+                    {error}
+                  </div>
+                )}
+
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                   <div className="space-y-2">
                     <label className="text-xs font-bold text-white/60 flex items-center gap-2 uppercase tracking-widest">
-                      <User className="w-4 h-4 text-primary" /> Jméno a příjmení
+                      <User className="w-4 h-4 text-primary" /> Jméno a příjmení *
                     </label>
-                    <input type="text" className="w-full bg-background/50 border border-white/5 rounded-xl px-4 py-4 text-white focus:outline-none focus:border-primary/50 focus:bg-background/80 transition-all placeholder:text-white/20 shadow-inner" placeholder="Jan Novák" />
+                    <input name="name" value={formData.name} onChange={handleInputChange} type="text" className="w-full bg-background/50 border border-white/5 rounded-xl px-4 py-4 text-white focus:outline-none focus:border-primary/50 focus:bg-background/80 transition-all placeholder:text-white/20 shadow-inner" placeholder="Jan Novák" required />
                   </div>
                   <div className="space-y-2">
                     <label className="text-xs font-bold text-white/60 flex items-center gap-2 uppercase tracking-widest">
-                      <Phone className="w-4 h-4 text-primary" /> Telefon
+                      <Phone className="w-4 h-4 text-primary" /> Telefon *
                     </label>
-                    <input type="tel" className="w-full bg-background/50 border border-white/5 rounded-xl px-4 py-4 text-white focus:outline-none focus:border-primary/50 focus:bg-background/80 transition-all placeholder:text-white/20 shadow-inner" placeholder="+420 123 456 789" />
+                    <input name="phone" value={formData.phone} onChange={handleInputChange} type="tel" className="w-full bg-background/50 border border-white/5 rounded-xl px-4 py-4 text-white focus:outline-none focus:border-primary/50 focus:bg-background/80 transition-all placeholder:text-white/20 shadow-inner" placeholder="+420 123 456 789" required />
                   </div>
                   <div className="space-y-2">
                     <label className="text-xs font-bold text-white/60 flex items-center gap-2 uppercase tracking-widest">
-                      <Mail className="w-4 h-4 text-primary" /> E-mail
+                      <Mail className="w-4 h-4 text-primary" /> E-mail *
                     </label>
-                    <input type="email" className="w-full bg-background/50 border border-white/5 rounded-xl px-4 py-4 text-white focus:outline-none focus:border-primary/50 focus:bg-background/80 transition-all placeholder:text-white/20 shadow-inner" placeholder="jan@novak.cz" />
+                    <input name="email" value={formData.email} onChange={handleInputChange} type="email" className="w-full bg-background/50 border border-white/5 rounded-xl px-4 py-4 text-white focus:outline-none focus:border-primary/50 focus:bg-background/80 transition-all placeholder:text-white/20 shadow-inner" placeholder="jan@novak.cz" required />
                   </div>
                   <div className="space-y-2">
                     <label className="text-xs font-bold text-white/60 flex items-center gap-2 uppercase tracking-widest">
-                      <MapPin className="w-4 h-4 text-primary" /> Adresa realizace
+                      <MapPin className="w-4 h-4 text-primary" /> Adresa realizace *
                     </label>
-                    <input type="text" className="w-full bg-background/50 border border-white/5 rounded-xl px-4 py-4 text-white focus:outline-none focus:border-primary/50 focus:bg-background/80 transition-all placeholder:text-white/20 shadow-inner" placeholder="Ulice, Město, PSČ" />
+                    <input name="address" value={formData.address} onChange={handleInputChange} type="text" className="w-full bg-background/50 border border-white/5 rounded-xl px-4 py-4 text-white focus:outline-none focus:border-primary/50 focus:bg-background/80 transition-all placeholder:text-white/20 shadow-inner" placeholder="Ulice, Město, PSČ" required />
                   </div>
                   <div className="space-y-2 md:col-span-2">
                     <label className="text-xs font-bold text-white/60 flex items-center gap-2 uppercase tracking-widest">
                       <MessageSquare className="w-4 h-4 text-primary" /> Poznámka (volitelné)
                     </label>
-                    <textarea rows={3} className="w-full bg-background/50 border border-white/5 rounded-xl px-4 py-4 text-white focus:outline-none focus:border-primary/50 focus:bg-background/80 transition-all resize-none placeholder:text-white/20 shadow-inner" placeholder="Specifikujte vaše požadavky..." />
+                    <textarea name="notes" value={formData.notes} onChange={handleInputChange} rows={3} className="w-full bg-background/50 border border-white/5 rounded-xl px-4 py-4 text-white focus:outline-none focus:border-primary/50 focus:bg-background/80 transition-all resize-none placeholder:text-white/20 shadow-inner" placeholder="Specifikujte vaše požadavky..." />
                   </div>
                 </div>
 
                 <div className="mt-8 md:mt-12 flex flex-col-reverse sm:flex-row justify-between gap-4">
                   <button
                     onClick={handlePrev}
-                    className="w-full sm:w-auto px-8 py-4 bg-transparent border border-white/10 text-white font-bold text-sm uppercase tracking-widest rounded-xl hover:border-white/30 hover:bg-white/5 transition-colors text-center"
+                    disabled={isSubmitting}
+                    className="w-full sm:w-auto px-8 py-4 bg-transparent border border-white/10 text-white font-bold text-sm uppercase tracking-widest rounded-xl hover:border-white/30 hover:bg-white/5 transition-colors text-center disabled:opacity-50"
                   >
                     Zpět
                   </button>
                   <div className="flex flex-col items-end gap-3 w-full sm:w-auto">
                     <button
-                      onClick={handleNext}
-                      className="w-full sm:w-auto px-8 py-4 bg-primary text-primary-foreground font-bold text-sm uppercase tracking-widest rounded-xl hover:bg-white transition-colors flex items-center justify-center gap-2 shadow-[0_10px_20px_rgba(212,175,55,0.2)]"
+                      onClick={handleSubmit}
+                      disabled={isSubmitting || !formData.name || !formData.phone || !formData.email || !formData.address}
+                      className="w-full sm:w-auto px-8 py-4 bg-primary text-primary-foreground font-bold text-sm uppercase tracking-widest rounded-xl hover:bg-white transition-colors flex items-center justify-center gap-2 shadow-[0_10px_20px_rgba(212,175,55,0.2)] disabled:opacity-50 disabled:cursor-not-allowed"
                     >
-                      Odeslat nezávaznou poptávku <CheckCircle2 className="w-5 h-5" />
+                      {isSubmitting ? 'Odesílám...' : 'Odeslat nezávaznou poptávku'} <CheckCircle2 className="w-5 h-5" />
                     </button>
                     <div className="flex items-center gap-2 text-white/40 text-xs font-light">
                       <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">

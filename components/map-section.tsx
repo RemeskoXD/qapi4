@@ -5,7 +5,7 @@ import { MapPin } from 'lucide-react';
 
 export function MapSection() {
   return (
-    <section className="py-20 md:py-24 lg:py-32 relative bg-background border-t border-white/5 overflow-hidden">
+    <section className="py-16 md:py-20 lg:py-24 2xl:py-32 relative bg-background border-t border-white/5 overflow-hidden">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(212,175,55,0.03),transparent_70%)]" />
       <div className="container mx-auto px-6 md:px-12 relative z-10">
         <div className="text-center mb-16">
@@ -26,7 +26,7 @@ export function MapSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.1 }}
-            className="font-display text-4xl md:text-5xl font-bold text-white tracking-tight"
+            className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-white tracking-tight"
           >
             Působíme po celé <span className="text-primary italic font-light">ČR</span>
           </motion.h2>

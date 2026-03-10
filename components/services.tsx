@@ -9,7 +9,8 @@ const services = [
   {
     id: 'servis',
     title: 'Servis Oken',
-    description: 'Profesionální údržba, seřízení a opravy pro maximální životnost vašich oken.',
+    pain: 'Táhne vám okny a platíte zbytečně moc za topení?',
+    relief: 'Zajistíme dokonalé utěsnění a seřízení. Snížíme vaše účty za energie a vrátíme domů tepelný komfort.',
     image: 'https://qapi.cz/wp-content/uploads/2025/10/IMG_8266-1536x864.jpg',
     link: '#servis-oken',
     colSpan: 'md:col-span-2',
@@ -18,16 +19,18 @@ const services = [
   {
     id: 'vrata',
     title: 'Garážová Vrata',
-    description: 'Sekční, rolovací a průmyslová vrata špičkové kvality s důrazem na bezpečnost a design.',
+    pain: 'Zasekávají se vrata nebo se bojíte o bezpečnost?',
+    relief: 'Instalujeme špičková vrata s tichým chodem a maximálním zabezpečením proti vloupání.',
     image: 'https://qapi.cz/wp-content/uploads/2025/11/Pred-1.jpg',
     link: '#vrata',
     colSpan: 'md:col-span-1',
     rowSpan: 'md:row-span-1',
   },
   {
-    id: 'stinici',
-    title: 'Stínící Technika',
-    description: 'Žaluzie, rolety a markýzy pro dokonalou kontrolu světla a tepelný komfort.',
+    id: 'montaz',
+    title: 'Montáž a Stínění',
+    pain: 'Přehřívá se vám interiér nebo potřebujete nová okna?',
+    relief: 'Precizní montáž oken a stínící techniky s důrazem na detail a dlouhou životnost.',
     image: 'https://qapi.cz/wp-content/uploads/2025/10/10.jpg',
     link: '#stinici',
     colSpan: 'md:col-span-1',
@@ -37,7 +40,7 @@ const services = [
 
 export function Services() {
   return (
-    <section id="sluzby" className="py-20 md:py-24 lg:py-32 bg-background relative overflow-hidden">
+    <section id="sluzby" className="py-16 md:py-20 lg:py-24 2xl:py-32 bg-background relative overflow-hidden">
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(212,175,55,0.05),transparent_50%)]" />
       <div className="container mx-auto px-6 md:px-12 relative z-10">
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 md:gap-8 mb-12 md:mb-20">
@@ -47,19 +50,19 @@ export function Services() {
               whileInView={{ opacity: 1, y: 0, rotateX: 0 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-              className="font-display text-4xl sm:text-5xl md:text-6xl font-bold text-white leading-[1.1] tracking-tighter"
+              className="font-display text-[var(--text-h2)] font-bold text-white leading-[1.1] tracking-tighter"
             >
-              Naše <span className="text-primary italic font-light">portfolio</span>
+              Řešíme vaše <span className="text-primary italic font-light">problémy</span>
             </motion.h2>
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.2, duration: 1 }}
-              className="mt-4 md:mt-8 text-base sm:text-lg text-white/60 font-light leading-relaxed"
+              className="mt-4 md:mt-8 text-[var(--text-base)] text-white/60 font-light leading-relaxed"
             >
-              Od návrhu až po realizaci. Nabízíme komplexní řešení pro váš domov či firmu, 
-              kde se snoubí funkčnost s estetikou.
+              Nenechte se omezovat nefunkčními okny nebo starými vraty. 
+              Přinášíme rychlou úlevu a dlouhodobou spolehlivost.
             </motion.p>
           </div>
           <motion.div
@@ -72,7 +75,7 @@ export function Services() {
               href="#rezervace"
               className="inline-flex items-center gap-3 text-primary uppercase tracking-[0.2em] font-bold text-xs hover:text-white transition-colors group"
             >
-              Získat kalkulaci zdarma
+              Získat cenu do 2 minut
               <span className="w-8 h-8 rounded-full border border-primary/30 flex items-center justify-center group-hover:border-white/30 transition-colors bg-primary/10 group-hover:bg-primary/20">
                 <ArrowUpRight className="w-4 h-4" />
               </span>
@@ -111,9 +114,15 @@ export function Services() {
                     {service.title}
                   </h3>
                   <div className="h-0 overflow-hidden group-hover:h-auto transition-all duration-700 ease-[0.16,1,0.3,1]">
-                    <p className="text-white/80 text-sm md:text-base font-light leading-relaxed max-w-md pb-2 md:pb-4 opacity-0 group-hover:opacity-100 transition-opacity duration-700 delay-100">
-                      {service.description}
-                    </p>
+                    <div className="flex flex-col gap-2 pb-2 md:pb-4 opacity-0 group-hover:opacity-100 transition-opacity duration-700 delay-100">
+                      <p className="text-white/60 text-sm md:text-base font-light italic border-l-2 border-white/20 pl-3">
+                        &quot;{service.pain}&quot;
+                      </p>
+                      <p className="text-white/90 text-sm md:text-base font-medium leading-relaxed max-w-md mt-2">
+                        <span className="text-primary font-bold mr-2">Řešení:</span>
+                        {service.relief}
+                      </p>
+                    </div>
                   </div>
                 </div>
                 

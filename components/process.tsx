@@ -7,25 +7,24 @@ import Link from 'next/link';
 const steps = [
   {
     icon: PhoneCall,
-    title: 'Zavoláte nebo nám napíšete',
+    title: '1. Rychlá poptávka',
+    description: 'Vyplníte krátký formulář nebo nám zavoláte. Ozveme se do 24 hodin.',
   },
   {
     icon: CalendarCheck,
-    title: 'Domluvíme termín bezplatné revizní kontroly',
-  },
-  {
-    icon: Users,
-    title: 'Poradíme a navrhneme profesionální řešení',
+    title: '2. Zaměření ZDARMA',
+    description: 'Přijedeme k vám, vše zaměříme a navrhneme nejlepší řešení. Nezávazně.',
   },
   {
     icon: Clock,
-    title: 'Rychlá, precizní montáž od odborníků',
+    title: '3. Precizní montáž',
+    description: 'Rychlá a čistá instalace našimi certifikovanými techniky.',
   },
 ];
 
 export function Process() {
   return (
-    <section className="py-20 md:py-24 lg:py-32 bg-background relative border-t border-white/5 overflow-hidden">
+    <section className="py-16 md:py-20 lg:py-24 2xl:py-32 bg-background relative border-t border-white/5 overflow-hidden">
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,rgba(59,130,246,0.05),transparent_50%)]" />
       <div className="container mx-auto px-6 md:px-12 relative z-10">
         <div className="text-center mb-16">
@@ -42,7 +41,7 @@ export function Process() {
             whileInView={{ opacity: 1, y: 0, rotateX: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-            className="font-display text-4xl md:text-5xl font-bold text-white tracking-tight"
+            className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-white tracking-tight"
           >
             Jak to u nás funguje?
           </motion.h2>
@@ -52,7 +51,7 @@ export function Process() {
           {/* Connecting Line */}
           <div className="hidden md:block absolute top-1/2 left-0 w-full h-[2px] bg-white/10 -translate-y-1/2 z-0" />
           
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 relative z-10">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 relative z-10">
             {steps.map((step, index) => {
               const Icon = step.icon;
               return (
@@ -62,15 +61,16 @@ export function Process() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.6, delay: index * 0.15 }}
-                  className="bg-muted/30 backdrop-blur-md border border-white/10 rounded-3xl p-8 flex flex-col items-center text-center relative group hover:border-secondary/30 hover:bg-muted/50 transition-all duration-500 shadow-xl"
+                  className="bg-muted/30 backdrop-blur-md border border-white/10 rounded-3xl p-8 flex flex-col items-center text-center relative group hover:border-primary/30 hover:bg-muted/50 transition-all duration-500 shadow-xl"
                 >
                   <div className="absolute -top-4 -left-4 text-6xl font-display font-bold text-white/5 group-hover:text-white/10 transition-colors duration-500 pointer-events-none">
                     {index + 1}
                   </div>
-                  <div className="w-20 h-20 rounded-full bg-secondary text-white flex items-center justify-center mb-6 shadow-[0_0_30px_rgba(59,130,246,0.3)] group-hover:scale-110 transition-transform duration-500">
+                  <div className="w-20 h-20 rounded-full bg-primary/10 border border-primary/30 text-primary flex items-center justify-center mb-6 shadow-[0_0_30px_rgba(212,175,55,0.1)] group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-500">
                     <Icon className="w-8 h-8" />
                   </div>
-                  <h3 className="text-lg font-bold text-white leading-snug">{step.title}</h3>
+                  <h3 className="text-xl font-bold text-white leading-snug mb-3">{step.title}</h3>
+                  <p className="text-white/60 font-light text-sm">{step.description}</p>
                 </motion.div>
               );
             })}
@@ -82,19 +82,19 @@ export function Process() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.6 }}
-          className="mt-16 flex flex-col md:flex-row items-center justify-center gap-6 md:gap-12 bg-secondary/10 border border-secondary/20 rounded-3xl p-8 md:p-10"
+          className="mt-16 flex flex-col md:flex-row items-center justify-center gap-6 md:gap-12 bg-primary/5 border border-primary/20 rounded-3xl p-8 md:p-10"
         >
           <div className="text-center md:text-left">
             <p className="text-white/80 text-lg md:text-xl font-light">
               Odborné zaměření a poradenství naším kvalifikovaným<br className="hidden md:block" />
-              servisním poradcem nabízíme <strong className="text-white bg-red-600 px-2 py-1 rounded ml-1 uppercase text-sm tracking-wider">Zdarma a nezávazně</strong>
+              technikem nabízíme <strong className="text-primary font-bold uppercase tracking-wider ml-1">Zcela zdarma a nezávazně</strong>
             </p>
           </div>
           <Link
             href="#rezervace"
-            className="px-8 py-4 bg-white text-secondary font-bold text-sm uppercase tracking-widest rounded-xl hover:bg-gray-100 transition-colors shadow-lg whitespace-nowrap"
+            className="px-8 py-4 bg-primary text-primary-foreground font-bold text-sm uppercase tracking-widest rounded-xl hover:bg-white transition-colors shadow-[0_10px_20px_rgba(212,175,55,0.2)] whitespace-nowrap"
           >
-            Rezervujte si termín
+            Získat cenu do 2 minut
           </Link>
         </motion.div>
       </div>

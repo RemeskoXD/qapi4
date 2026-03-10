@@ -7,7 +7,7 @@ import { motion } from 'motion/react';
 
 export function ServisOkenSection() {
   return (
-    <section id="servis-oken" className="py-20 md:py-24 lg:py-32 relative [perspective:1000px] bg-background border-t border-white/5">
+    <section id="servis-oken" className="py-16 md:py-20 lg:py-24 2xl:py-32 relative [perspective:1000px] bg-background border-t border-white/5">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(212,175,55,0.05),transparent_70%)]" />
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff02_1px,transparent_1px),linear-gradient(to_bottom,#ffffff02_1px,transparent_1px)] bg-[size:4rem_4rem]" />
       <div className="container mx-auto px-6 md:px-12 relative z-10">
@@ -21,7 +21,7 @@ export function ServisOkenSection() {
           >
             <span className="w-2 h-2 rounded-full bg-primary animate-pulse shadow-[0_0_5px_rgba(212,175,55,0.8)]" />
             <span className="text-primary text-xs font-bold uppercase tracking-[0.2em]">
-              Profesionální péče
+              Okamžitá záchrana
             </span>
           </motion.div>
           <motion.h2
@@ -29,9 +29,9 @@ export function ServisOkenSection() {
             whileInView={{ opacity: 1, y: 0, rotateX: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-            className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-white tracking-tight drop-shadow-lg"
+            className="font-display text-3xl md:text-4xl lg:text-5xl 2xl:text-6xl font-bold text-white tracking-tight drop-shadow-lg"
           >
-            Servis <span className="text-primary italic font-light">oken a dveří</span>
+            Zastavte úniky <span className="text-primary italic font-light">tepla a peněz</span>
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -40,7 +40,7 @@ export function ServisOkenSection() {
             transition={{ duration: 1, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
             className="mt-6 text-xl text-white/60 font-light max-w-2xl mx-auto leading-relaxed"
           >
-            Profesionální servis plastových, hliníkových i dřevěných oken a dveří. Zajišťujeme odborné seřízení kování, výměnu těsnění, mazání mechanik a opravy.
+            Táhne vám okny? Zasekávají se dveře? Nečekejte, až se problém zhorší. Náš expresní servis vrátí vašim oknům 100% funkčnost a ušetří vám tisíce za energie.
           </motion.p>
         </div>
 
@@ -122,7 +122,7 @@ export function ServisOkenSection() {
               transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
               className="font-display text-4xl font-bold text-white tracking-tight drop-shadow-lg"
             >
-              Komplexní servis a <span className="text-primary italic font-light">seřízení</span>
+              Konec průvanu a <span className="text-primary italic font-light">vysokých účtů</span>
             </motion.h3>
             <motion.p 
               initial={{ opacity: 0, y: 20 }}
@@ -131,7 +131,7 @@ export function ServisOkenSection() {
               transition={{ duration: 1, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
               className="text-white/60 font-light leading-relaxed text-lg"
             >
-              Náš servis pomáhá odstranit průvan, špatné dovírání, zvýšený hluk z ulice, rosení oken a tuhé ovládání kliky. Technik přijede k vám domů, provede diagnostiku a kompletní servis na místě.
+              Špatně seřízená okna znamenají nejen diskomfort, ale i obrovské tepelné ztráty. Naši technici během chvíle odhalí příčinu a provedou precizní seřízení, které okamžitě pocítíte.
             </motion.p>
             <motion.p 
               initial={{ opacity: 0, y: 20 }}
@@ -140,10 +140,10 @@ export function ServisOkenSection() {
               transition={{ duration: 1, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
               className="text-white/60 font-light leading-relaxed text-lg"
             >
-              Každé okno a dveře servisujeme s maximální pečlivostí — od seřízení přítlaku a pantů, přes vyčištění a mazání kování, až po výměnu těsnění. Používáme kvalitní komponenty a servisní materiály, aby byla zajištěna dlouhá životnost a správná funkce.
+              Od výměny zpuchřelého těsnění až po opravu zablokovaného kování. Používáme výhradně originální díly, abychom vám mohli garantovat dlouhodobý výsledek bez kompromisů.
             </motion.p>
             <ul className="space-y-5">
-              {['Seřízení přítlaku a chodu kování', 'Promazání pohyblivých částí', 'Výměna těsnění', 'Opravy poškozených dílů'].map((item, index) => (
+              {['Okamžité zastavení úniků tepla', 'Hladký chod jako u nových oken', 'Nové těsnění s maximální životností', 'Rychlá oprava místo drahé výměny'].map((item, index) => (
                 <motion.li 
                   key={item} 
                   initial={{ opacity: 0, x: 20 }}

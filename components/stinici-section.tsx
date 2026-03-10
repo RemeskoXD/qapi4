@@ -7,7 +7,7 @@ import { motion } from 'motion/react';
 
 export function StiniciSection() {
   return (
-    <section id="stinici" className="py-20 md:py-24 lg:py-32 relative [perspective:1000px] bg-background border-t border-white/5">
+    <section id="stinici" className="py-16 md:py-20 lg:py-24 2xl:py-32 relative [perspective:1000px] bg-background border-t border-white/5">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(212,175,55,0.05),transparent_70%)]" />
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff02_1px,transparent_1px),linear-gradient(to_bottom,#ffffff02_1px,transparent_1px)] bg-[size:4rem_4rem]" />
       <div className="container mx-auto px-6 md:px-12 relative z-10">
@@ -21,7 +21,7 @@ export function StiniciSection() {
           >
             <span className="w-2 h-2 rounded-full bg-primary animate-pulse shadow-[0_0_5px_rgba(212,175,55,0.8)]" />
             <span className="text-primary text-xs font-bold uppercase tracking-[0.2em]">
-              Design & Funkčnost
+              Dokonalý komfort
             </span>
           </motion.div>
           <motion.h2
@@ -29,7 +29,7 @@ export function StiniciSection() {
             whileInView={{ opacity: 1, y: 0, rotateX: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-            className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-white tracking-tight drop-shadow-lg"
+            className="font-display text-3xl md:text-4xl lg:text-5xl 2xl:text-6xl font-bold text-white tracking-tight drop-shadow-lg"
           >
             Stínící <span className="text-primary italic font-light">technika</span>
           </motion.h2>
@@ -40,7 +40,7 @@ export function StiniciSection() {
             transition={{ duration: 1, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
             className="mt-6 text-xl text-white/60 font-light max-w-2xl mx-auto leading-relaxed"
           >
-            Žaluzie, rolety a markýzy pro dokonalou kontrolu světla, tepelný komfort a soukromí.
+            Získejte absolutní kontrolu nad světlem a teplotou ve vašem domově. Prémiové stínění, které chrání vaše soukromí a posouvá design interiéru na novou úroveň.
           </motion.p>
         </div>
 
@@ -86,11 +86,10 @@ export function StiniciSection() {
               transition={{ duration: 1, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
               className="text-white/60 font-light leading-relaxed text-lg"
             >
-              Nejefektivnější způsob stínění, který zachytí sluneční paprsky ještě před dopadem na okno. 
-              Výrazně snižují teplotu v interiéru během letních měsíců a poskytují dokonalé soukromí.
+              Zastavte horko dřív, než vstoupí do vašeho domu. Naše venkovní stínění funguje jako neprostupný štít proti slunci i zvědavým pohledům, a navíc vypadá naprosto skvěle.
             </motion.p>
             <ul className="space-y-5">
-              {['Venkovní rolety', 'Venkovní žaluzie', 'Markýzy', 'Pergoly'].map((item, index) => (
+              {['Venkovní rolety (100% tma a bezpečnost)', 'Venkovní žaluzie (plynulá regulace světla)', 'Markýzy (luxusní stín pro vaši terasu)', 'Pergoly (obývák pod širým nebem)'].map((item, index) => (
                 <motion.li 
                   key={item} 
                   initial={{ opacity: 0, x: 20 }}
@@ -146,11 +145,10 @@ export function StiniciSection() {
               transition={{ duration: 1, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
               className="text-white/60 font-light leading-relaxed text-lg"
             >
-              Elegantní a praktické řešení pro regulaci světla a zajištění soukromí ve vašem domově. 
-              Široký výběr materiálů, barev a typů pro každý interiér.
+              Dodejte svému interiéru šmrnc a vytvořte si doma dokonalou atmosféru. Od jemného rozptýlení světla až po úplné zatemnění pro klidný a ničím nerušený spánek.
             </motion.p>
             <ul className="space-y-5">
-              {['Žaluzie', 'Rolety', 'Plissé žaluzie', 'Rolety den a noc', 'Vertikální žaluzie'].map((item, index) => (
+              {['Designové žaluzie na míru', 'Látkové rolety s prémiovými vzory', 'Plissé (elegantní stínění oken)', 'Rolety Den a Noc (hra světla a stínu)', 'Vertikální žaluzie pro velké plochy'].map((item, index) => (
                 <motion.li 
                   key={item} 
                   initial={{ opacity: 0, x: -20 }}

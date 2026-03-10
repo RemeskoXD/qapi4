@@ -6,7 +6,7 @@ import Link from 'next/link';
 
 export function ReviewsSection() {
   return (
-    <section className="py-20 md:py-24 lg:py-32 relative bg-background border-t border-white/5 overflow-hidden">
+    <section className="py-16 md:py-20 lg:py-24 2xl:py-32 relative bg-background border-t border-white/5 overflow-hidden">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(212,175,55,0.03),transparent_70%)]" />
       <div className="container mx-auto px-6 md:px-12 relative z-10">
         <div className="text-center mb-16">
@@ -27,7 +27,7 @@ export function ReviewsSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.1 }}
-            className="font-display text-4xl md:text-5xl font-bold text-white tracking-tight"
+            className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-white tracking-tight"
           >
             Co o nás říkají <span className="text-primary italic font-light">klienti</span>
           </motion.h2>
@@ -80,7 +80,7 @@ export function ReviewsSection() {
                 <ExternalLink className="w-5 h-5 text-white/40 group-hover:text-primary transition-colors" />
               </div>
               <p className="text-white/70 font-light italic">
-                &quot;Skvělá komunikace, rychlé jednání a profesionální přístup. Vřele doporučuji!&quot;
+                &quot;Skvělá komunikace, rychlé jednání a profesionální přístup při montáži garážových vrat v Praze. Vřele doporučuji!&quot;
               </p>
               <div className="mt-6 text-primary text-sm font-bold uppercase tracking-wider flex items-center gap-2 group-hover:gap-3 transition-all">
                 Číst všechny recenze <ArrowRight className="w-4 h-4" />
@@ -120,7 +120,7 @@ export function ReviewsSection() {
                 <ExternalLink className="w-5 h-5 text-white/40 group-hover:text-primary transition-colors" />
               </div>
               <p className="text-white/70 font-light italic">
-                &quot;Velmi spolehlivá firma. Servis oken proběhl na jedničku. Určitě využijeme znovu.&quot;
+                &quot;Velmi spolehlivá firma. Servis oken ve Středočeském kraji proběhl na jedničku. Určitě využijeme znovu.&quot;
               </p>
               <div className="mt-6 text-primary text-sm font-bold uppercase tracking-wider flex items-center gap-2 group-hover:gap-3 transition-all">
                 Číst všechny recenze <ArrowRight className="w-4 h-4" />

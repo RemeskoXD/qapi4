@@ -3,8 +3,50 @@ import Image from 'next/image';
 import { Facebook, Instagram, Mail, MapPin, Phone } from 'lucide-react';
 
 export function Footer() {
+  const localBusinessSchema = {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "QAPI - Servis oken a garážová vrata",
+    "image": "https://qapi.cz/wp-content/uploads/2025/10/Logo-Bile.png",
+    "@id": "https://qapi.cz",
+    "url": "https://qapi.cz",
+    "telephone": "+420702835964",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Luxusní ulice 123",
+      "addressLocality": "Praha 1",
+      "postalCode": "110 00",
+      "addressCountry": "CZ"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 50.087811,
+      "longitude": 14.420460
+    },
+    "openingHoursSpecification": {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday"
+      ],
+      "opens": "08:00",
+      "closes": "17:00"
+    },
+    "sameAs": [
+      "https://www.facebook.com/qapi.cz",
+      "https://www.instagram.com/qapi.cz"
+    ]
+  };
+
   return (
     <footer className="bg-background border-t border-white/5 pt-24 pb-12 relative overflow-hidden [perspective:1000px]">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
+      />
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,_var(--tw-gradient-stops))] from-primary/5 via-background to-background" />
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff02_1px,transparent_1px),linear-gradient(to_bottom,#ffffff02_1px,transparent_1px)] bg-[size:4rem_4rem]" />
       

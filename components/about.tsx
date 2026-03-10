@@ -7,29 +7,29 @@ import { Shield, Wrench, Clock, Award } from 'lucide-react';
 const features = [
   {
     icon: Shield,
-    title: 'Bezpečnost na prvním místě',
-    description: 'Nejvyšší standardy zabezpečení pro váš klid a ochranu majetku.',
+    title: 'Bezpečnost bez kompromisů',
+    description: 'Nejvyšší standardy zabezpečení pro váš absolutní klid a ochranu majetku.',
   },
   {
     icon: Wrench,
-    title: 'Precizní montáž',
-    description: 'Náš tým certifikovaných techniků zaručuje bezchybnou instalaci.',
+    title: 'Milimetrová přesnost',
+    description: 'Náš tým certifikovaných techniků zaručuje bezchybnou instalaci na první dobrou.',
   },
   {
     icon: Clock,
-    title: 'Skvělá zákaznická zkušenost',
-    description: 'Jsme tu pro vás 24/7. Rychlá reakce na vaše požadavky.',
+    title: 'Prémiový klientský servis',
+    description: 'Jsme tu pro vás 24/7. Rychlá reakce a osobní přístup ke každému klientovi.',
   },
   {
     icon: Award,
-    title: 'Špičková kvalita',
-    description: 'Používáme pouze materiály a komponenty od prověřených výrobců.',
+    title: 'Materiály, které vydrží',
+    description: 'Používáme výhradně prémiové komponenty od prověřených evropských výrobců.',
   },
 ];
 
 export function About() {
   return (
-    <section id="o-nas" className="py-20 md:py-24 lg:py-32 bg-background relative overflow-hidden border-y border-white/5 [perspective:1000px]">
+    <section id="o-nas" className="py-16 md:py-20 lg:py-24 2xl:py-32 bg-background relative overflow-hidden border-y border-white/5 [perspective:1000px]">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,rgba(212,175,55,0.05),transparent_50%)]" />
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff02_1px,transparent_1px),linear-gradient(to_bottom,#ffffff02_1px,transparent_1px)] bg-[size:4rem_4rem]" />
       <div className="container mx-auto px-6 md:px-12 relative z-10">
@@ -55,7 +55,7 @@ export function About() {
             
             <div className="absolute bottom-6 left-6 right-6 md:bottom-10 md:left-10 md:right-10 bg-background/80 backdrop-blur-2xl p-6 md:p-10 rounded-2xl border border-white/10 shadow-2xl transform translate-y-4 group-hover:translate-y-0 transition-all duration-700 ease-[0.16,1,0.3,1] group-hover:border-primary/30" style={{ transform: "translateZ(30px)" }}>
               <div className="flex items-center gap-4 md:gap-8">
-                <div className="text-4xl md:text-6xl font-display font-bold text-primary drop-shadow-[0_0_15px_rgba(212,175,55,0.5)]">10+</div>
+                <div className="text-4xl md:text-5xl lg:text-6xl font-display font-bold text-primary drop-shadow-[0_0_15px_rgba(212,175,55,0.5)]">10+</div>
                 <div className="text-white/80 font-light leading-relaxed text-sm md:text-lg">
                   Let zkušeností v oboru<br />
                   <span className="text-white font-bold">garážových vrat a stínící techniky</span>
@@ -81,10 +81,10 @@ export function About() {
                 whileInView={{ opacity: 1, y: 0, rotateX: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-                className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-[1.1] tracking-tight drop-shadow-lg"
+                className="font-display text-3xl md:text-4xl lg:text-5xl 2xl:text-6xl font-bold text-white leading-[1.1] tracking-tight drop-shadow-lg"
               >
-                Tradice, kvalita a <br />
-                <span className="text-primary italic font-light">inovace</span>
+                Nekompromisní kvalita <br />
+                <span className="text-primary italic font-light">bez výmluv</span>
               </motion.h2>
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
@@ -93,7 +93,7 @@ export function About() {
                 transition={{ delay: 0.2, duration: 1 }}
                 className="mt-8 text-xl text-white/60 font-light leading-relaxed"
               >
-                Specializujeme se na dodávku a montáž garážových vrat, stínící techniky a servis oken. Naším cílem je poskytovat řešení, která nejen skvěle vypadají, ale především spolehlivě fungují a přinášejí dlouhodobý komfort i bezpečí pro váš domov.
+                Nejsme jen montéři. Jsme inženýři vašeho domácího komfortu. Od prvního zaměření až po finální úklid garantujeme absolutní preciznost. Naše práce končí až ve chvíli, kdy jste 100% spokojeni.
               </motion.p>
             </div>
 
